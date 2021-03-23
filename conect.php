@@ -1,6 +1,7 @@
 <?php 
 session_start();
-include "fonction1.php"; 
+include"fonction1.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,16 +11,17 @@ include "fonction1.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="main.js"></script>
-    <title>covid</title>
+    <title>Document</title>
 </head>
 <body>
     
-    <?
+    <?php
     include "fonction.php"; 
 
     if($access){
         
         echo "BIENVENUE sur MON SITE";
+        echo '<a href="combat.php">vient combatre</a>';
 
     }else{
         echo "c'est ouf";

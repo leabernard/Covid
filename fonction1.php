@@ -3,15 +3,14 @@
 $mabase = null;
 $access = null;
 $errorMessage="";
-try{
-            $user = "230223_lea";
-            $pass = "TDataSource1234";
 
+try{
+            $user = "lapro_site";
+            $pass = "TDataSource1234";
             $mabase =  new PDO('mysql:host=mysql-leabernard.alwaysdata.net; dbname=leabernard_virus; charset=utf8','230223_lea','Pastelle6169');
 
 
             
-
 }catch(Exception $e){
     $errorMessage .= $e->getMessage();
 }
@@ -70,7 +69,7 @@ function afficheFormulaireConnexion($mabase){
     if( isset($_POST["login"]) && isset($_POST["password"])){
         //verif mdp en BDD
 
-        $Result = $mabase->query("SELECT * FROM `user` WHERE `login`='".$_POST['login']."' AND `mdp` = '".$_POST['password']."'");
+        $Result = $mabase->query("SELECT * FROM `user` WHERE `Nom`='".$_POST['login']."' AND `mdp` = '".$_POST['password']."'");
         if($tab = $Result->fetch()){ 
              //si mdp = ok
             $access = true;
@@ -93,11 +92,11 @@ function afficheFormulaireConnexion($mabase){
         <form action="" method="post" >
             <div>
                 <label for="login">Enter your login: </label>
-                <input type="text" name="login" id="login" required value="Rapidecho">
+                <input type="text" name="login" id="login" >
             </div>
             <div >
                 <label for="password">Enter your pass: </label>
-                <input type="password" name="password" id="password" required value="Julien1234">
+                <input type="password" name="password" id="password" >
             </div>
             <div >
                 <input type="submit" value="Go!" >
