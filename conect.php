@@ -1,7 +1,6 @@
 <?php 
 session_start();
-include"fonction1.php";
-
+    include "fonction1.php"; 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,15 +15,29 @@ include"fonction1.php";
 <body>
     
     <?php
-    include "fonction.php"; 
+    //c'est dans fonction que l'on gère les formulaires de Co et les sessions
+
 
     if($access){
         
-        echo "BIENVENUE sur MON SITE";
-        echo '<a href="combat.php">vient combatre</a>';
+        echo "BIENVENUE sur MON SITE ".$Joueur1->getPrenom();
+        
+        $Perso = new Personnage($mabase);
+        $Perso->getChoixPersonnage();
+        if(!$Perso->getId()==0){
+            $Joueur1->setPersonnage($Perso);
+        }
+        
+        if(!empty($Perso->getNom())){
+            echo '<a href="combat.php">vient combatre avec'.$Perso->getNom().'</a>';
+        }else{
+            echo '<a href="combat.php">vient combatre avec'.$Joueur1->getNomPersonnage().'</a>';
+        }
+        
+        
+
 
     }else{
-        echo "c'est ouf";
         echo $errorMessage;
     }
     ?>

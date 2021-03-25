@@ -1,6 +1,6 @@
 <?php 
 session_start();
-
+include "fonction1.php"; 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,20 +15,17 @@ session_start();
 <body>
     
     <?php
-    include "fonction.php"; 
+    
 
     if($access){
         
-        echo "BIENVENUE sur CE COMBAT";
-
-
-
+        echo "BIENVENUE sur CE COMBAT ".$Joueur1->getPrenom();
+        echo "TU COMBAT AVEC ".$Joueur1->getNomPersonnage();
+        echo '<a href="index.php" >retour menu</a>';
 
     }else{
-        echo "c'est ouf";
         echo $errorMessage;
     }
     ?>
 </body>
 </html>
-© 2021 GitHub, Inc.
